@@ -196,9 +196,12 @@ $(function(){
 	$("#header .list-title .icon:last-child").on("touchend", function(){
 		$(".list-box").addClass("list-box-active");
 	});
-	$(".list-box .list-title .icon:last-child").on("touchend", function(){
+	$(".list-box .list-title .icon").on("touchend", function(){
 		$(".list-box").removeClass("list-box-active");
 	});
+	
+	console.log($(".list-box .list-title .icon:last-child"))
+	
 	
 //切换音量
 	$("#main").on("touchstart", function(){

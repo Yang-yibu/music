@@ -105,6 +105,7 @@ p, #header .music {
   background-position: center;
   background-repeat: no-repeat;
   font-style: normal;
+  z-index: 2;
   font-family: "iconfont" !important;
   font-size: 18px;
   font-style: normal;
@@ -133,6 +134,7 @@ p, #header .music {
   background-position: center;
   background-repeat: no-repeat;
   font-style: normal;
+  z-index: 2;
   font-family: "iconfont" !important;
   font-size: 18px;
   font-style: normal;
@@ -273,6 +275,7 @@ p, #header .music {
   background-position: center;
   background-repeat: no-repeat;
   font-style: normal;
+  z-index: 2;
   font-family: "iconfont" !important;
   font-size: 18px;
   font-style: normal;
