@@ -17,7 +17,7 @@ $(function(){
 			var c = (i ===current) ? "active" : "";
 			var I = i + 1;
 			I = (I < 10) ? "0" + I : I;
-			$("<li class="+c+"><div class='xuhao'>"+I+"</div><div class='music'><div class='name'>"+musics[i].name+"</div><div class='author'>"+musics[i].author+"</div></div></li>").appendTo(".list");
+			$("<li class="+c+"><div class='xuhao'>"+I+"</div><div class='music'><div class='name'>"+musics[i].name+"</div><div class='author'>"+musics[i].author+"</div></div><div class='delete'></div></li>").appendTo(".list");
 		});
 	}
 ///////////////////////////////////////////////
@@ -32,7 +32,7 @@ $(function(){
 	var next = $("#next");
 	var list = $(".list");
 	var current = 0;
-	
+	console.log(play)
 	var musics = [
 		{name: "广岛之恋", author: "莫文蔚", src: "musics/aa.mp3"},
 		{name: "夜莺", author: "雅尼", src: "musics/bb.mp3"},
@@ -79,6 +79,8 @@ $(function(){
 			audio.pause();
 		}
 	});
+	
+	
 
 //点击快进快退
 	pI.click(false);
@@ -153,7 +155,15 @@ $(function(){
 		$("#duration").html(format(audio.duration));
 		
 		list.find("li").removeClass("active");
-		list.find("li").eq(current).addClass("active").find(".xuhao").html("&#xe7bd;").addClass("play icon");
+		list.find("li").eq(current).addClass("active").find(".xuhao").html("&#xe7bd;").addClass("icon one");
+		$(".one").on("touchend", function(){
+			if(audio.paused){
+				audio.play();
+			}else{
+				audio.pause();
+			}
+		});
+	console.log($(".one"))
 	});
 	$audio.on("play", function(){
 		console.log("play")
@@ -194,8 +204,12 @@ $(function(){
 	$("#main").on("touchstart", function(){
 		$(".vol-box").toggleClass("vol-active");
 	});
+	$(".volume").on("touchstart", function(){
+		$(".vol-box").addClass("vol-active");
+	})
 	
-	
+//循环播放
+
 	
 });
 
