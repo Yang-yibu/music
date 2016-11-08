@@ -73,7 +73,7 @@ body {
   top: 0;
   bottom: 0;
   z-index: 20;
-  font-size: 24px;
+  font-size: 18px;
   color: #fff;
   transform: translateY(100%);
   transition: all 0.5s;
@@ -106,7 +106,7 @@ p, #header .music {
   background-repeat: no-repeat;
   font-style: normal;
   font-family: "iconfont" !important;
-  font-size: 24px;
+  font-size: 18px;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -webkit-text-stroke-width: 0.2px;
@@ -134,7 +134,7 @@ p, #header .music {
   background-repeat: no-repeat;
   font-style: normal;
   font-family: "iconfont" !important;
-  font-size: 24px;
+  font-size: 18px;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -webkit-text-stroke-width: 0.2px;
@@ -163,12 +163,12 @@ p, #header .music {
 
 .music .name {
   line-height: 40px;
-  font-size: 24px;
+  font-size: 18px;
 }
 
 .music .author {
   line-height: 20px;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .active {
@@ -221,7 +221,7 @@ p, #header .music {
 #foot #progress-box #currentTime, #foot #progress-box #duration {
   float: left;
   line-height: 30px;
-  font-size: 20px;
+  font-size: 16px;
   color: #fff;
 }
 
@@ -246,14 +246,14 @@ p, #header .music {
   background-repeat: no-repeat;
   font-style: normal;
   font-family: "iconfont" !important;
-  font-size: 24px;
+  font-size: 18px;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -webkit-text-stroke-width: 0.2px;
   -moz-osx-font-smoothing: grayscale;
   float: left;
   background: #08D66F;
-  font-size: 24px;
+  font-size: 18px;
   color: #fff;
   line-height: 1rem;
   text-align: center;
@@ -263,7 +263,7 @@ p, #header .music {
   width: 2.4rem;
   height: 100%;
   float: left;
-  font-size: 24px;
+  font-size: 18px;
   color: #fff;
   line-height: 1rem;
   text-align: center;

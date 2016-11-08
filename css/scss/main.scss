@@ -15,6 +15,9 @@ $design-width: 750px;
 $theme-color: #db1a5b;
 $hui-color: #b6b6b6;
 $list-height: 70px;
+
+$size: 18px;
+$size-sm: 16px;
 html{
     font-size: 100px;
 }
@@ -53,7 +56,7 @@ body{
     font-style: normal;
 
       font-family:"iconfont" !important;
-      font-size:24px;font-style:normal;
+      font-size:$size;font-style:normal;
       -webkit-font-smoothing: antialiased;
       -webkit-text-stroke-width: 0.2px;
       -moz-osx-font-smoothing: grayscale;
@@ -104,7 +107,7 @@ body{
     background: rgba(0, 0, 0, 0.9);
     @include fix;
     z-index: 20;
-    font-size: 24px;
+    font-size: $size;
     color: #fff;
     transform: translateY(100%);
     transition: all 0.5s;
@@ -150,11 +153,11 @@ body{
     float: left;
     .name{
         line-height: 40px;
-        font-size: 24px;
+        font-size: $size;
     }
     .author{
         line-height: 20px;
-        font-size: 20px;
+        font-size: $size;
     }
 }
 
@@ -191,7 +194,7 @@ body{
         #currentTime, #duration{
             float: left;
             line-height: 30px;
-            font-size: 20px;
+            font-size: $size-sm;
             color: #fff;
         }
         #duration{
@@ -207,7 +210,7 @@ body{
             @include icon(0.8rem, 100%)
             float: left;
             background: #08D66F;
-            font-size: 24px;
+            font-size: $size;
             color: #fff;
             line-height: 1rem;
             text-align: center;
@@ -216,7 +219,7 @@ body{
             width: 2.4rem;
             height: 100%;
             float: left;
-            font-size: 24px;
+            font-size: $size;
             color: #fff;
             line-height: 1rem;
             text-align: center;
