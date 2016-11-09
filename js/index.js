@@ -180,13 +180,7 @@ $(function(){
 		$("#header .name").html(musics[current].name);
 		$("#header .author").html(musics[current].author);
 		$(".list-title p").html("播放列表("+(current + 1)+"/"+musics.length+")");
-
-	});
-	$audio.on("progress", function(){
-		console.log("progress")
-	});
-	$audio.on("canplay", function(){
-		$("#duration").html(format(audio.duration));
+		
 		
 		list.find("li").removeClass("active");
 		list.find("li").eq(current).addClass("active").find(".xuhao").html("&#xe7bd;").addClass("icon one");
@@ -199,6 +193,25 @@ $(function(){
 				$(this).html("&#xe646;");
 			}
 		});
+
+	});
+	$audio.on("progress", function(){
+		console.log("progress")
+	});
+	$audio.on("canplay", function(){
+		$("#duration").html(format(audio.duration));
+		
+//		list.find("li").removeClass("active");
+//		list.find("li").eq(current).addClass("active").find(".xuhao").html("&#xe7bd;").addClass("icon one");
+//		$(".one").on("touchend", function(){
+//			if(audio.paused){
+//				audio.play();
+//				$(this).html("&#xe7bd;");
+//			}else{
+//				audio.pause();
+//				$(this).html("&#xe646;");
+//			}
+//		});
 		audio.play();
 	});
 	$audio.on("play", function(){
