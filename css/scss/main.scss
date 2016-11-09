@@ -104,6 +104,8 @@ body{
     top: 0;
    
 }
+
+
  .list-box{
     width: 100%;
     background: rgba(0, 0, 0, 0.9);
@@ -227,6 +229,14 @@ body{
 
 
 //底部
+/*播放列表*/
+.dong{
+    width: 100%;
+    position: absolute;
+    top: 1rem;
+    bottom: 0;
+    overflow: auto;
+}
 #foot{
     @include fixed(100%, 1rem);
     bottom: 0;

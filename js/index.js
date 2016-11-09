@@ -193,7 +193,7 @@ $(function(){
 				$(this).html("&#xe646;");
 			}
 		});
-
+		audio.play();
 	});
 	$audio.on("progress", function(){
 		console.log("progress")
@@ -212,7 +212,7 @@ $(function(){
 //				$(this).html("&#xe646;");
 //			}
 //		});
-		audio.play();
+//		audio.play();
 	});
 	$audio.on("play", function(){
 		console.log("play")
