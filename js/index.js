@@ -31,8 +31,8 @@ $(function(){
 	var prev = $("#prev");
 	var next = $("#next");
 	var list = $(".list");
+
 	var current = 0;
-	console.log(play)
 	var musics = [
 		{name: "广岛之恋", author: "莫文蔚", src: "musics/aa.mp3"},
 		{name: "夜莺", author: "雅尼", src: "musics/bb.mp3"},
@@ -47,10 +47,39 @@ $(function(){
 	render();
 	list.on("touchend", "li", function(){
 		var index = $(this).index();
-		current = index;
-		audio.src = musics[current].src;
-		audio.play();
+		if(index != current){
+			current = index;
+			audio.src = musics[current].src;
+		}
+//		audio.play();
 	});
+//删除
+	list.on("touchend", ".delete", function(){
+		var li = $(this).closest("li");
+		var index = li.index();
+		console.log(index)
+		musics.splice(index, 1);
+		if(index === current){
+			if(musics[current]){
+				audio.src = musics[current].src
+			}else{
+				audio.src = "";
+			}
+		}else if(index > current){
+			//不操心
+		}else if(index < current){
+			current -= 1;
+		};
+		render();
+		return false;
+	});
+	
+//删除全部
+	$("#list-huishou").on("touchend", function(){
+		musics = [];
+		render();
+	});
+	
 //切歌
 	next.on("touchend", nex);
 	prev.on("touchend", pre)
@@ -70,6 +99,9 @@ $(function(){
 		audio.src = musics[current].src;
 		audio.play();
 	}
+
+	
+	
 	
 //播放暂停
 	play.on("touchend", function(){
@@ -143,10 +175,12 @@ $(function(){
 
 //事件驱动
 	$audio.on("loadstart", function(){
+		render();
+		
 		$("#header .name").html(musics[current].name);
 		$("#header .author").html(musics[current].author);
 		$(".list-title p").html("播放列表("+(current + 1)+"/"+musics.length+")");
-		render();
+
 	});
 	$audio.on("progress", function(){
 		console.log("progress")
@@ -159,11 +193,13 @@ $(function(){
 		$(".one").on("touchend", function(){
 			if(audio.paused){
 				audio.play();
+				$(this).html("&#xe7bd;");
 			}else{
 				audio.pause();
+				$(this).html("&#xe646;");
 			}
 		});
-	console.log($(".one"))
+		audio.play();
 	});
 	$audio.on("play", function(){
 		console.log("play")
