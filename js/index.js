@@ -6,10 +6,12 @@ $(function(){
 		s = (s<10) ? "0" + s : s;
 		return m + ":" + s;
 	}
+	
 	//清除冒泡事件
 	$(document).on("mousedown", function(){
 		return false;
 	});
+	
 	//渲染
 	function render(){
 		list.empty();
@@ -51,8 +53,11 @@ $(function(){
 			current = index;
 			audio.src = musics[current].src;
 		}
-//		audio.play();
 	});
+	$(".dong").on("touchmove", function(){
+		list.find("li").off("touchend")
+	})
+	
 //删除
 	list.on("touchend", ".delete", function(){
 		var li = $(this).closest("li");
@@ -112,8 +117,6 @@ $(function(){
 		}
 	});
 	
-	
-
 //点击快进快退
 	pI.click(false);
 	progress.on("touchstart", function(e){
@@ -129,12 +132,12 @@ $(function(){
 				return;
 			}
 			audio.currentTime = width / progress.width() * audio.duration;;
-			console.log(1)
 		});
 	});
 	$(document).on("touchend", function(){
 		$(document).off("touchmove");
 	});
+	
 //音量
 	vol.on("touchend", function(e){
 		var width = e.originalEvent.changedTouches[0].clientX - $(this).offset().left;
@@ -155,6 +158,7 @@ $(function(){
 	$(document).on("touchend", function(){
 		$(document).off("touchmove");
 	});
+	
 //静音
 	$(".mute").on("touchstart", function(){
 		if($(this).attr("state-v")){
@@ -181,7 +185,6 @@ $(function(){
 		$("#header .author").html(musics[current].author);
 		$(".list-title p").html("播放列表("+(current + 1)+"/"+musics.length+")");
 		
-		
 		list.find("li").removeClass("active");
 		list.find("li").eq(current).addClass("active").find(".xuhao").html("&#xe7bd;").addClass("icon one");
 		$(".one").on("touchend", function(){
@@ -201,18 +204,6 @@ $(function(){
 	$audio.on("canplay", function(){
 		$("#duration").html(format(audio.duration));
 		
-//		list.find("li").removeClass("active");
-//		list.find("li").eq(current).addClass("active").find(".xuhao").html("&#xe7bd;").addClass("icon one");
-//		$(".one").on("touchend", function(){
-//			if(audio.paused){
-//				audio.play();
-//				$(this).html("&#xe7bd;");
-//			}else{
-//				audio.pause();
-//				$(this).html("&#xe646;");
-//			}
-//		});
-//		audio.play();
 	});
 	$audio.on("play", function(){
 		console.log("play")
@@ -249,9 +240,6 @@ $(function(){
 		$(".list-box").removeClass("list-box-active");
 	});
 	
-	console.log($(".list-box .list-title .icon:last-child"))
-	
-	
 //切换音量
 	$("#main").on("touchstart", function(){
 		$(".vol-box").toggleClass("vol-active");
@@ -259,9 +247,6 @@ $(function(){
 	$(".volume").on("touchstart", function(){
 		$(".vol-box").addClass("vol-active");
 	})
-	
-//循环播放
-
 	
 });
 
